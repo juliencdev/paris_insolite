@@ -37,22 +37,24 @@
                         <li class="nav-item">
 							<a class="nav-link active" aria-current="page" href="{{ path ('contact')}}">Contact</a>
 						</li>
-						
+						{% if is_granted('ROLE_ADMIN') %}
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								Type de recherche
+								Espace administrateur
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<li>
-									<a class="dropdown-item" href="#">Lieux par arrondissements</a>
+									<a class="dropdown-item" href="{{ path('admin_categorie_index')}}">Categorie</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="#">Lieux par thématiques</a>
+									<a class="dropdown-item" href="{{ path('admin_commentaire_index')}}">Commentaire</a>
 								</li>
-								
+								<li>
+									<a class="dropdown-item" href="{{ path('admin_lieu_index')}}">Lieu</a>
+								</li>
 							</ul>
 						</li>
-					
+					    {% endif %}
 					</ul>
 					<form class="d-flex">
 						<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
