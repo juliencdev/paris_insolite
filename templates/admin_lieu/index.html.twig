@@ -25,7 +25,7 @@
                 <td>{{ lieu.adresse }}</td>
                 <td>{{ lieu.codePostal }}</td>
                 <td>{{ lieu.description }}</td>
-                <td>{{ lieu.image }}</td>
+                <td><img src="{{asset('uploads/' ~ lieu.image )}}"/></td>
                 <td>
                     <a href="{{ path('admin_lieu_show', {'id': lieu.id}) }}">show</a>
                     <a href="{{ path('admin_lieu_edit', {'id': lieu.id}) }}">edit</a>

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Lieu;
 use App\Form\LieuType;
 use App\Repository\LieuRepository;
+use App\Service\FileUploader;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,13 +30,20 @@ class AdminLieuController extends AbstractController
     /**
      * @Route("/new", name="admin_lieu_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, FileUploader $fileUploader): Response
     {
         $lieu = new Lieu();
         $form = $this->createForm(LieuType::class, $lieu);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $imageFile = $form->get('image')->getData();
+        if ($imageFile) {
+            $imageFilename = $fileUploader->upload($imageFile);
+            $lieu->setImage($imageFilename);
+        }
+
             $entityManager->persist($lieu);
             $entityManager->flush();
 
@@ -61,12 +69,17 @@ class AdminLieuController extends AbstractController
     /**
      * @Route("/{id}/edit", name="admin_lieu_edit", methods={"GET", "POST"})
      */
-    public function edit(Request $request, Lieu $lieu, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Lieu $lieu, EntityManagerInterface $entityManager, FileUploader $fileUploader): Response
     {
         $form = $this->createForm(LieuType::class, $lieu);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imageFile = $form->get('image')->getData();
+        if ($imageFile) {
+            $imageFilename = $fileUploader->upload($imageFile);
+            $lieu->setImage($imageFilename);
+        }
             $entityManager->flush();
 
             return $this->redirectToRoute('admin_lieu_index', [], Response::HTTP_SEE_OTHER);
