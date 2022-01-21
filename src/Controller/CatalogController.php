@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Categorie;
 use App\Entity\Lieu;
 use App\Form\Lieu1Type;
 use App\Repository\LieuRepository;
@@ -21,10 +22,23 @@ class CatalogController extends AbstractController
      */
     public function index(LieuRepository $lieuRepository): Response
     {
+        $lieu = $lieuRepository->findAll();
         return $this->render('catalog/index.html.twig', [
-            'lieus' => $lieuRepository->findAll(),
+            'lieus' => $lieu
         ]);
     }
+
+     /**
+     * @Route("/categorie/{id}", name="catalog_category", methods={"GET"})
+     */
+    public function indexCategorie(Categorie $categorie): Response
+    {
+        $lieu = $categorie->getLieux();
+        return $this->render('catalog/index.html.twig', [
+            'lieus' => $lieu
+        ]);
+    }
+    
 
     
 
