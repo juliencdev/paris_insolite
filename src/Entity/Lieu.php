@@ -44,16 +44,18 @@ class Lieu
      */
     private $image;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Categorie::class)
-     */
-    private $categories;
+    
 
     /**
      * @ORM\ManyToOne(targetEntity=Utilisateur::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $auteur;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Categorie::class, inversedBy="lieux")
+     */
+    private $categories;
 
     public function __construct()
     {
@@ -125,6 +127,24 @@ class Lieu
         return $this;
     }
 
+   
+
+  
+
+  
+
+    public function getAuteur(): ?Utilisateur
+    {
+        return $this->auteur;
+    }
+
+    public function setAuteur(?Utilisateur $auteur): self
+    {
+        $this->auteur = $auteur;
+
+        return $this;
+    }
+
     /**
      * @return Collection|Categorie[]
      */
@@ -145,18 +165,6 @@ class Lieu
     public function removeCategory(Categorie $category): self
     {
         $this->categories->removeElement($category);
-
-        return $this;
-    }
-
-    public function getAuteur(): ?Utilisateur
-    {
-        return $this->auteur;
-    }
-
-    public function setAuteur(?Utilisateur $auteur): self
-    {
-        $this->auteur = $auteur;
 
         return $this;
     }

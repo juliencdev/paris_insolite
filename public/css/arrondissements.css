@@ -1,0 +1,140 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+
+img{
+    width:150px;
+    height:150px;
+}
+#logo{
+    
+    background-color: #38b6ff;
+    color: #ff914d;
+    font-size: 20px;
+    
+}
+#connexion{
+    
+    background-color: #38b6ff;
+    font-weight: bold;
+   
+}
+a{
+    color: #ff914d;
+    text-decoration: none;
+    font-size: 25px;
+    
+}
+
+header{
+    height: 170px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #38b6ff ;
+    
+}
+
+#paragraphe{
+width: 70%;
+
+}
+#insolite{
+color: #ff914d;
+font-weight: bold;
+font-size: 60px;
+font-family: Patrick Hand;
+
+}
+#decouvrir{
+    color: #ff914d;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 40px;
+    font-family: Patrick Hand;
+}
+#recherche{
+    display:flex;
+    justify-content: space-between;
+    background-color: #38b6ff;
+    height: 70px;
+    align-items: center;
+    border-top: solid #ff914d;
+    
+}
+.lieux{
+    background-color: #ff914d;
+    
+    height: 100%;
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#lieux{
+    color:#38b6ff;
+}
+#barre{
+    
+    padding-right: 40px;
+}
+footer{
+    background-color: #ff914d;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display:flex;
+    justify-content: space-around;
+}
+.liens_footer{
+    color:#38b6ff;
+
+}
+#vide {
+    width:25%;
+}
+#bandeau {
+    width:100%;
+    height: 300px;
+  }
+  #sommaire {
+    background-color: #38b6ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#articles {
+    background-color: #38b6ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+h2{
+  color:#ff914d;
+
+}
+h3 {
+    color:#ff914d;
+}
+.contenu {
+    display:flex;
+    justify-content: space-between;
+    margin-right:120px;
+    margin-left:120px;
+}
+.illustration{
+    width: 350px;
+    height:350px;
+}
+.description{
+    margin-right:20px;
+}
+h1{
+    color:#ff914d;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}

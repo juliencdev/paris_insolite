@@ -25,10 +25,12 @@
                 <td>{{ lieu.adresse }}</td>
                 <td>{{ lieu.codePostal }}</td>
                 <td>{{ lieu.description }}</td>
-                <td><img class="w-25" src="{{asset('uploads/' ~ lieu.image )}}"/></td>
                 <td>
-                    <a href="{{ path('admin_lieu_show', {'id': lieu.id}) }}">show</a>
-                    <a href="{{ path('admin_lieu_edit', {'id': lieu.id}) }}">edit</a>
+                    <img class="w-100" src="{{asset('uploads/' ~ lieu.image )}}"/>
+                </td>
+                <td>
+                    <a href="{{ path('catalog_show', {'id': lieu.id}) }}">show</a>
+                    
                 </td>
             </tr>
         {% else %}
@@ -39,5 +41,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('admin_lieu_new') }}">Create new</a>
+    
 {% endblock %}
