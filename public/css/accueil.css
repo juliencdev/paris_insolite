@@ -12,6 +12,7 @@ img{
     background-color: #38b6ff;
     color: #ff914d;
     font-size: 20px;
+    margin-bottom: 50px;
     
 }
 #connexion{
@@ -60,7 +61,8 @@ font-family: Patrick Hand;
     background-color: #38b6ff;
     height: 70px;
     align-items: center;
-    border-top: solid #ff914d;
+    
+    
     
 }
 .lieux{
@@ -71,9 +73,11 @@ font-family: Patrick Hand;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    text-decoration: none;
 }
 #lieux{
     color:#38b6ff;
+    text-decoration: none;
 }
 #barre{
     
