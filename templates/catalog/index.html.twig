@@ -12,7 +12,7 @@
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 		{% endblock %}
 {% block body %}
-    <h1>Catalogue des lieux répertoriés</h1>
+    <h1>Catalogue des lieux répertoriés dans la catégorie {{categorie.nom}}</h1>
 
     <table class="table">
         <thead>
@@ -27,18 +27,18 @@
             </tr>
         </thead>
         <tbody>
-        {% for lieu in lieus %}
+        {% for toto in lieus %}
             <tr>
-                <td>{{ lieu.id }}</td>
-                <td>{{ lieu.nom }}</td>
-                <td>{{ lieu.adresse }}</td>
-                <td>{{ lieu.codePostal }}</td>
-                <td>{{ lieu.description }}</td>
+                <td>{{ toto.id }}</td>
+                <td>{{ toto.nom }}</td>
+                <td>{{ toto.adresse }}</td>
+                <td>{{ toto.codePostal }}</td>
+                <td>{{ toto.description }}</td>
                 <td>
-                    <img class="w-100" src="{{asset('uploads/' ~ lieu.image )}}"/>
+                    <img class="w-100" src="{{asset('uploads/' ~ toto.image )}}"/>
                 </td>
                 <td>
-                    <a href="{{ path('catalog_show', {'id': lieu.id}) }}">montrer</a>
+                    <a href="{{ path('catalog_show', {'id': toto.id}) }}">montrer</a>
                     
                 </td>
             </tr>
