@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    
+}
+html{
+    background-color:#38b6ff;
+}
+form{
+    color: #ff914d;
+}
+main{
+    background-color:#38b6ff;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    
+}
+h1{
+    color:#ff914d;
+   
+}
+
