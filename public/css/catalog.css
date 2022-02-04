@@ -15,3 +15,13 @@ th{
     text-align: center;
     margin-bottom: 0rem;
 }
+footer{
+    background-color: #ff914d;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display:flex;
+    justify-content: space-around;
+}
+a{
+    text-decoration: none;
+}

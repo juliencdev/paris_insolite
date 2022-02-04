@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Commentaire;
+use App\Entity\Lieu;
 use App\Form\Commentaire1Type;
 use App\Repository\CommentaireRepository;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,30 +18,37 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class UserCommentaireController extends AbstractController
 {
-    /**
+     /**
      * @Route("/", name="user_commentaire_index", methods={"GET"})
      */
     public function index(CommentaireRepository $commentaireRepository): Response
     {
+        $ensemble=$commentaireRepository->findBy(['auteur'=>$this->getUser()]);
+        $nombre=count($ensemble);
         return $this->render('user_commentaire/index.html.twig', [
-            'commentaires' => $commentaireRepository->findAll(),
+            'commentaires' => $ensemble,
+            'nombrecom' => $nombre
         ]);
     }
 
     /**
-     * @Route("/new", name="user_commentaire_new", methods={"GET", "POST"})
+     * @Route("/new/{id}", name="user_commentaire_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Lieu $lieu, Request $request, EntityManagerInterface $entityManager): Response
     {
         $commentaire = new Commentaire();
         $form = $this->createForm(Commentaire1Type::class, $commentaire);
         $form->handleRequest($request);
-
+        $commentaire->setAuteur($this->getUser());
+        $commentaire->setLieu($lieu);
         if ($form->isSubmitted() && $form->isValid()) {
+            $commentaire->setCreation(new DateTime());
             $entityManager->persist($commentaire);
             $entityManager->flush();
 
-            return $this->redirectToRoute('user_commentaire_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('catalog_show', [
+                'id'=>$commentaire->getLieu()->getId()
+            ], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('user_commentaire/new.html.twig', [
@@ -63,6 +72,10 @@ class UserCommentaireController extends AbstractController
      */
     public function edit(Request $request, Commentaire $commentaire, EntityManagerInterface $entityManager): Response
     {
+        $utilisateurConnect=$this->getUser();
+        if($utilisateurConnect!=$commentaire->getAuteur()){
+            return $this->redirectToRoute('catalog_index');
+        }
         $form = $this->createForm(Commentaire1Type::class, $commentaire);
         $form->handleRequest($request);
 
@@ -83,6 +96,10 @@ class UserCommentaireController extends AbstractController
      */
     public function delete(Request $request, Commentaire $commentaire, EntityManagerInterface $entityManager): Response
     {
+        $utilisateurConnect=$this->getUser();
+        if($utilisateurConnect!=$commentaire->getAuteur()){
+            return $this->redirectToRoute('catalog_index');
+        }
         if ($this->isCsrfTokenValid('delete'.$commentaire->getId(), $request->request->get('_token'))) {
             $entityManager->remove($commentaire);
             $entityManager->flush();

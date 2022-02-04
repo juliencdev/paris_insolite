@@ -5,13 +5,30 @@
 {% block body %}
     <h1>Commentaire index</h1>
 
+    {% if nombrecom <= 3 %}
+    Tu es un novice pour l'instant
+
+    {% endif %}
+
+    {% if nombrecom >= 4 and nombrecom < 7 %}
+    Tu es un baroudeur maintenant
+
+    {% endif %}
+
+    {% if nombrecom >= 7 %}
+    Tu es un grand connaisseur de Paris
+
+    {% endif %}
+    
+
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Contenu</th>
-                <th>Creation</th>
-                <th>actions</th>
+                <th>Date de création</th>
+                <th>Lieu</th>
+               
             </tr>
         </thead>
         <tbody>
@@ -19,7 +36,10 @@
             <tr>
                 <td>{{ commentaire.id }}</td>
                 <td>{{ commentaire.contenu }}</td>
-                <td>{{ commentaire.creation ? commentaire.creation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ commentaire.creation|date('d/m/Y H:i:s') }}</td>
+                <td>{{ commentaire.lieu }}</td>
+                
+                
                 <td>
                     <a href="{{ path('user_commentaire_show', {'id': commentaire.id}) }}">show</a>
                     <a href="{{ path('user_commentaire_edit', {'id': commentaire.id}) }}">edit</a>
@@ -27,11 +47,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="7">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('user_commentaire_new') }}">Create new</a>
+    
 {% endblock %}

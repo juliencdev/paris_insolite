@@ -13,9 +13,9 @@ class Commentaire1Type extends AbstractType
     {
         $builder
             ->add('contenu')
-            ->add('creation')
-            ->add('lieu')
-            ->add('auteur')
+            
+            
+            
         ;
     }
 

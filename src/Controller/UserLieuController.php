@@ -70,6 +70,10 @@ class UserLieuController extends AbstractController
      */
     public function edit(Request $request, Lieu $lieu, EntityManagerInterface $entityManager): Response
     {
+        $utilisateurConnect=$this->getUser();
+        if($utilisateurConnect!=$lieu->getAuteur()){
+            return $this->redirectToRoute('catalog_index');
+        }
         $form = $this->createForm(Lieu1Type::class, $lieu);
         $form->handleRequest($request);
 
@@ -90,6 +94,10 @@ class UserLieuController extends AbstractController
      */
     public function delete(Request $request, Lieu $lieu, EntityManagerInterface $entityManager): Response
     {
+        $utilisateurConnect=$this->getUser();
+        if($utilisateurConnect!=$lieu->getAuteur()){
+            return $this->redirectToRoute('catalog_index');
+        }
         if ($this->isCsrfTokenValid('delete'.$lieu->getId(), $request->request->get('_token'))) {
             $entityManager->remove($lieu);
             $entityManager->flush();

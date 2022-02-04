@@ -36,8 +36,16 @@
         </tbody>
     </table>
 
-    <a href="{{ path('catalog_index') }}">retour à la liste</a>
-
+    <a href="{{ path('user_commentaire_new',{id:lieu.id}) }}">Ajouter un commentaire</a>
+      {% for commentaire in resultat %}
+         <div>  
+          {{commentaire.contenu}}
+          {{commentaire.auteur}}
+          {{commentaire.creation|date('d/m/Y H:i:s')}}
+          </div>
+        {% else %}
+            Il n'y a pas encore de commentaires
+        {% endfor %}
     
 
    

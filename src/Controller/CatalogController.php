@@ -7,6 +7,7 @@ use App\Entity\Categorie;
 use App\Entity\Lieu;
 //On utilise le modèle de formulaire Lieu1Type
 use App\Form\Lieu1Type;
+use App\Repository\CommentaireRepository;
 //On utilise CommentaireRepository pour récupérer le détail des lieux
 use App\Repository\LieuRepository;
 //on utilise EntityManager pour ajouter, modifier ou supprimer des lieux
@@ -74,10 +75,14 @@ class CatalogController extends AbstractController
     /**
      * @Route("/{id}", name="catalog_show", methods={"GET"})
      */
-    public function show(Lieu $lieu): Response
+    public function show(CommentaireRepository $commentaireRepository, Lieu $lieu): Response
     {
+        $resultat=$commentaireRepository->findBy([
+            'lieu'=>$lieu
+        ]);
         return $this->render('catalog/show.html.twig', [
             'lieu' => $lieu,
+            'resultat' => $resultat
         ]);
     }
 
