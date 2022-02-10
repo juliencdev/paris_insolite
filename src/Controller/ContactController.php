@@ -27,7 +27,7 @@ class ContactController extends AbstractController
             // Mail to admin
             $mailer->sendEmail($email, "admin@gmail.com", $object, "emails/contact.html.twig", ['inputMessage'=>$message]);
             // Mail to user
-            $mailer->sendEmail('admin@gmail.com', $email, "Thank you !", "emails/automatic.html.twig", []);
+            $mailer->sendEmail('admin@gmail.com', $email, "Thank you !", "emails/automatic.html.twig", ['mail' => $email]);
             return $this->render('contact/success.html.twig',[
                 'email' => $email
             ]);

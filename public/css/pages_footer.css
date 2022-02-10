@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    
+}
+main{
+    background-color:#38b6ff;
+}
+h1{
+    color:#ff914d;
+}
+h2{
+    color:#ff914d;
+}
+footer{
+    background-color: #ff914d;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display:flex;
+    justify-content: space-around;
+    text-decoration: none;
+}
+.liens_footer{
+    color:#38b6ff;
+    text-decoration: none;
+}
+a:link{
+    color: #38b6ff;
+    text-decoration: none;
+    font-size: 25px;
+}

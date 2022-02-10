@@ -4,9 +4,21 @@
     box-sizing: border-box;
     
 }
-html{
+body{
     background-color:#38b6ff;
+    position: relative;
 }
+.btn{
+    background-color:#ff914d;
+}
+#categorie{
+    font-size: 40px;
+    text-decoration: none;
+    color:#ff914d;
+    font-family: Patrick Hand;
+    font-weight: bold;
+}
+
 form{
     color: #ff914d;
 }
@@ -29,4 +41,18 @@ footer{
     padding-bottom: 50px;
     display:flex;
     justify-content: space-around;
+    text-decoration: none;
+    position: absolute;
+    width: 100%;
+    bottom:-133px;
+    
+}
+.liens_footer{
+    color:#38b6ff;
+    text-decoration: none;
+}
+a:link{
+    color: #38b6ff;
+    text-decoration: none;
+    font-size: 25px;
 }

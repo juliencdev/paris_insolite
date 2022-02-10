@@ -13,12 +13,14 @@
 		{% endblock %}
 
 {% block body %}
-    <h1>Lieu index</h1>
-<form action="" method="GET">
+    <h1 class="test">Lieux par arrondissements</h1>
+    <div class="test">
+<form  action="" method="GET">
     <select name="search">
         <option value="75001">Paris 1er</option>
         <option value="75002">Paris 2eme</option>
         <option value="75003">Paris 3eme</option>
+        <option value="75004">Paris 4eme</option>
         <option value="75005">Paris 5eme</option>
         <option value="75006">Paris 6eme</option>
         <option value="75007">Paris 7eme</option>
@@ -38,6 +40,7 @@
     </select>
     <button type="submit">Valider</button>
 </form>
+</div>
     <table class="table">
         <thead>
             <tr>

@@ -7,10 +7,12 @@
     background-color:#38b6ff;
     padding-bottom: 30px;
 }
-body{
+main{
     background-color:#38b6ff;
     position: relative;
+    height:90vh;
 }
+
 th{
     color: #ff914d;
 }
@@ -26,28 +28,25 @@ footer{
     padding-bottom: 50px;
     display:flex;
     justify-content: space-around;
-    position:absolute;
+    text-decoration: none;
+    position: absolute;
     width: 100%;
-    bottom:-136px;
+    bottom:0;
     
 }
 .liens_footer{
     color:#38b6ff;
     text-decoration: none;
-    font-size: 25px;
 }
-.montrer{
-    color:#ff914d;
-    text-decoration: none;
-    font-size: 25px;
-}
-.liens_footer:link{
+a:link{
     color: #38b6ff;
     text-decoration: none;
     font-size: 25px;
 }
-.montrer:link{
-    color:#ff914d;
+a{
     text-decoration: none;
     font-size: 25px;
+}
+h1{
+    color:#ff914d;
 }
