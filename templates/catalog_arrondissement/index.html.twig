@@ -13,6 +13,7 @@
 		{% endblock %}
 
 {% block body %}
+
     <h1 class="test">Lieux par arrondissements</h1>
     <div class="test">
 <form  action="" method="GET">
@@ -38,7 +39,7 @@
         <option value="75019">Paris 19eme</option>
         <option value="75020">Paris 20eme</option>
     </select>
-    <button type="submit">Valider</button>
+    <button class="btn-primary rounded mt-2 p-1" type="submit">Valider</button>
 </form>
 </div>
     <table class="table">
@@ -50,6 +51,7 @@
                 <th>CodePostal</th>
                 <th>Description</th>
                 <th>Image</th>
+                <th>actions</th>
                 
             </tr>
         </thead>
@@ -62,7 +64,10 @@
                 <td>{{ lieu.codePostal }}</td>
                 <td>{{ lieu.description }}</td>
                 <td><img class="w-100" src="{{asset('uploads/' ~ lieu.image )}}"/></td>
-                
+                 <td>
+                    <a class="montrer" href="{{ path('catalog_show', {'id': lieu.id}) }}">montrer</a>
+                    
+                </td>
             </tr>
         {% else %}
             <tr>

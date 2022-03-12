@@ -20,7 +20,6 @@ class Lieu1Type extends AbstractType
             ->add('image', FileType::class, [
                 'mapped' => false
             ])
-            ->add('auteur')
             ->add('categories')
         ;
     }

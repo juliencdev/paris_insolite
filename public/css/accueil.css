@@ -54,17 +54,12 @@ font-family: Patrick Hand;
     height: 300px;
 }
 
-img{
-    width: 150px;
-    height: 150px;
-}
+
 
 #logo{
-    
-    background-color: #38b6ff;
-    color: #ff914d;
-    font-size: 20px;
     margin-bottom: 50px;
+    width: 150px;
+    height: 150px;
 }
 
 a:link{
@@ -74,9 +69,7 @@ a:link{
 }
 
 
-#paragraphe{
-width: 70%;
-}
+
 
 footer{
     background-color: #ff914d;
@@ -92,9 +85,7 @@ footer{
     text-decoration: none;
 }
 
-#vide {
-    width:25%;
-}
+
 
 #articles {
     background-color: #38b6ff;
