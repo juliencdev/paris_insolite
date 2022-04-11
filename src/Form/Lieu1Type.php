@@ -18,7 +18,8 @@ class Lieu1Type extends AbstractType
             ->add('codePostal')
             ->add('description')
             ->add('image', FileType::class, [
-                'mapped' => false
+                'mapped' => false,
+                'required' => false,
             ])
             ->add('categories')
         ;
