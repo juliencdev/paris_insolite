@@ -31,7 +31,7 @@ class AdminLieuController extends AbstractController
     public function index(LieuRepository $lieuRepository): Response
     {   
         // affiche la vue'admin_lieu/index.html.twig' avec une variable TWIG 'lieus'
-        //qui pointe vers la liste de tous les commentaires en base de données
+        //qui pointe vers la liste de tous les lieux en base de données
         return $this->render('admin_lieu/index.html.twig', [
             'lieus' => $lieuRepository->findAll(),
         ]);
