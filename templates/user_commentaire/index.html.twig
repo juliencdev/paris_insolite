@@ -47,13 +47,13 @@
                 
                 
                 <td>
-                    <a href="{{ path('user_commentaire_show', {'id': commentaire.id}) }}">show</a>
-                    <a href="{{ path('user_commentaire_edit', {'id': commentaire.id}) }}">edit</a>
+                    <a href="{{ path('user_commentaire_show', {'id': commentaire.id}) }}">montrer</a>
+                    <a href="{{ path('user_commentaire_edit', {'id': commentaire.id}) }}">modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">Vide</td>
+                <td colspan="7">Aucun commentaire trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
